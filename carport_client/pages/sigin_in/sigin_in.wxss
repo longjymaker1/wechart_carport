@@ -1,0 +1,53 @@
+/* pages/sigin_in/sigin_in.wxss */
+page{
+  height: 100%;
+}
+.container{
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f2f2f2
+}
+.sigin-from{
+  margin-top: 50%;
+  flex:auto;
+  height: 100%;
+}
+.input-view{
+  line-height: 44px;
+  width: 300px;
+}
+.singin-lab{
+  margin: 15px 15px 15px 10px;
+  color: #545454;
+  font-size: 14px;
+}
+.namelmage,.keylmage{margin-left: 22px;
+  width: 14px;
+  height:14px;
+  }
+.inputText{
+  flex: block;
+  float:right;
+  text-align: left;
+  margin-right: 22px;
+  margin-top: 11px;
+  color: #574545;
+  font-size: 14px;
+}
+
+.sigin_in{
+  width: 100%;
+  height:auto;
+  
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom:0px; 
+}
+.loginbtn{
+  background-color: #28d130; 
+  width: 80%;
+  margin-top: 35px;
+}

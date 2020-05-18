@@ -1,0 +1,4 @@
+/* carport_client/pages/message_upload/message_upload.wxss */
+.container{
+  padding: 50rpx;
+}

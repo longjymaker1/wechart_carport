@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index_page/index_page",
+    "pages/carport_list/carport_list",
+    "pages/carport_detail/carport_detail",
+    "pages/user_detail/user_detail",
+    "pages/user_like/user_like",
+    "pages/searchbar/searchbar",
+    "pages/carport_msg/carport_msg",
+    "pages/message_upload/message_upload",
+    "pages/picker-select/picker-select",
+    "pages/login/login",
+    "pages/logs/logs",
+    "pages/sigin_in/sigin_in",
+    "pages/login_test/login_text"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF6633",
+    "navigationBarTitleText": "车位宝",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "list": [
+      {
+        "pagePath": "pages/index_page/index_page",
+        "text": "主页",
+        "iconPath": "/assets/imgs/tabBar/home0.png",
+        "selectedIconPath": "/assets/imgs/tabBar/home1.png"
+      },
+      {
+        "pagePath": "pages/user_like/user_like",
+        "text": "关注",
+        "iconPath": "/assets/imgs/tabBar/like0.png",
+        "selectedIconPath": "/assets/imgs/tabBar/like1.png"
+      },
+      {
+        "pagePath": "pages/user_detail/user_detail",
+        "text": "个人中心",
+        "iconPath": "/assets/imgs/tabBar/user0.png",
+        "selectedIconPath": "/assets/imgs/tabBar/user1.png"
+      }
+    ],
+    "position": "bottom"
+  }
+}

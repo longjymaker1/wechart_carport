@@ -1,0 +1,23 @@
+<!--pages/login/login.wxml-->
+<view class='container'>
+  <image class="background" src="../../assets/imgs/login/login0.jpg" mode="aspectFill"></image>
+  <view class="login-icon">
+  </view>
+  <view class='login-from'>
+    <view class="inputView">
+        <image class='namelmage' src='../../assets/imgs/login/username.svg'></image>
+        <label class='loginLab'>账号</label>
+        <input class='inputText' bindinput='inputName' placeholder='请输入手机号' name='username' type='text'/>
+      <view class='line'></view>
+      <view class="inputView">
+        <image class='keylmage' src='../../assets/imgs/login/password.svg'></image>
+        <label class='loginLab'>密码</label>
+        <input class='inputText'password="true" bindinput='inputPwd' placeholder='请输入密码' name='passwd'/>
+      </view>
+    </view>
+    <view class="login">
+      <button class='loginbtn' type='primary ' size='{{primarysize }}'loading='{{loading}}' plain="{{plain}}"bindtap="log">登录</button>
+      <view class='info'>{{result}}</view>
+    </view>
+  </view>
+</view>

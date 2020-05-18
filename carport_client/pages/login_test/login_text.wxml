@@ -1,0 +1,28 @@
+<!--carport_client/pages/login_test/login_text.wxml-->
+<!-- <view class="box">
+    <view class="title">
+        登录并授权
+    </view>
+    <view class="">
+        申请获取以下权限
+    </view>
+    <view class="">
+        获得您的公开信息（昵称丶头像等）
+    </view>
+    <button bindgetphonenumber="getPhoneNumber" openType="getPhoneNumber">允许</button>
+</view> -->
+
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
+
+  

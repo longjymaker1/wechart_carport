@@ -1,0 +1,143 @@
+{
+	"miniprogramRoot": "carport_client/",
+	"cloudfunctionRoot": "carport_cloud/",
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"nodeModules": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.11.0",
+	"appid": "wxe44e12b912e5374d",
+	"projectname": "carport2",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "注册",
+					"pathName": "pages/sigin_in/sigin_in",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "主页",
+					"pathName": "pages/index_page/index_page",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "searchbar",
+					"pathName": "pages/searchbar/searchbar",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "车位信息",
+					"pathName": "pages/carport_msg/carport_msg",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "车位详情页",
+					"pathName": "pages/carport_detail/carport_detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/user_detail/user_detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "用户收藏页",
+					"pathName": "pages/user_like/user_like",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "信息上传",
+					"pathName": "pages/message_upload/message_upload",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "二级联动选择框",
+					"pathName": "pages/picker-select/picker-select",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "登录测试",
+					"pathName": "pages/login_test/login_text",
+					"scene": null
+				}
+			]
+		}
+	}
+}

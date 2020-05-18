@@ -1,0 +1,30 @@
+<!--pages/user_like/user_like.wxml-->
+<!-- <x-carport-msg/>
+<x-carport-msg/>
+<x-carport-msg/>
+<x-carport-msg/>
+<x-carport-msg/> -->
+
+<view class="carport_list">
+  <block wx:for='{{messageItems}}' wx:for-item='messageItem' wx:key='_id'>
+    <view class="container_carport_msg" id="{{messageItem._id}}" catchtap="_toCarportMsg">
+      <view>
+        <image class="carport_img" src="../../assets/imgs/carport_msg/carport_img.jpg"/>
+      </view>
+      <view class="msg">
+        <view class="title">
+          <text>{{messageItem.title}}</text>
+        </view>
+        <view class="address">
+          <text>{{messageItem.address}}</text>
+        </view>
+        <view class="type_price">
+          <text class="type">{{messageItem.lease}}</text>
+          <view class="price">
+            <text>{{messageItem.rant_price}}</text>{{messageItem.rant_unit}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

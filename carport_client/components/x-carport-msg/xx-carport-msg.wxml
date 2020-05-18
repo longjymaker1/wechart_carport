@@ -1,0 +1,42 @@
+<!--carport_client/pages/carport_msg/carport_msg.wxml-->
+<!-- <view class="container_carport_msg">
+  <view>
+    <image class="carport_img" src="../../assets/imgs/carport_msg/carport_img.jpg"/>
+  </view>
+  <view class="msg">
+    <view class="title">
+      <text>龙湖天玺一期15幢负一楼车位出租</text>
+    </view>
+    <view class="address">
+      <text>萧山-北干-龙湖春江天玺</text>
+    </view>
+    <view class="type_price">
+      <text class="type">押一付三</text>
+      <view class="price">
+        <text>300</text>元/月
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<block wx:for='{{messageItems}}' wx:for-item='messageItem' wx:key='_id'>
+  <view class="container_carport_msg" id="{{messageItem._id}}">
+    <view>
+      <image class="carport_img" src="../../assets/imgs/carport_msg/carport_img.jpg"/>
+    </view>
+    <view class="msg">
+      <view class="title">
+        <text>龙湖天玺一期15幢负一楼车位出租</text>
+      </view>
+      <view class="address">
+        <text>龙湖天玺一期15幢</text>
+      </view>
+      <view class="type_price">
+        <text class="type">1月</text>
+        <view class="price">
+          <text>250</text>元/月
+        </view>
+      </view>
+    </view>
+  </view>
+</block>

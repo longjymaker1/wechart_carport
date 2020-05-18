@@ -1,0 +1,91 @@
+/* pages/carport_detail/carport_detail.wxss */
+page{
+  height: 100%;
+  width: 100%;
+}
+.container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  padding: 1%;
+}
+.img{
+  width: 98%;
+}
+.base_msg{
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  width: 98%;
+}
+
+.base_msg .title{
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  justify-self: flex-start;
+}
+.base_msg .time{
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 500;
+  color: #999999;
+}
+.base_msg .price{
+  margin: 20rpx;
+  margin-left: 0;
+}
+.base_msg .price_value{
+  font-size: 25px;
+  margin-right: 10rpx;
+  color: #E33D3D;
+  font-weight: 600;
+}
+
+.left__right{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  white-space: pre-wrap;
+  font-size: 13.4px;
+}
+.left, .right{
+  display: flex;
+  flex-direction: column;
+}
+.left__right .key{
+  font-size: 13px;
+  color: #999999;
+  font-family: sans-serif;
+}
+.line{
+  width: 100%;
+  height: 50rpx;
+  background-color: rgb(208, 208, 208);
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.button-sp-area{
+  justify-content: flex-end;
+  margin: 20rpx;
+  margin-left: 0;
+}
+.img image{
+  width: 100%;
+}
+
+.weui-tabbar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  width: 100%;
+}
+.weui-tabbar .weui-tabbar__item, .weui-bar__item_on{
+  flex-basis:1
+}

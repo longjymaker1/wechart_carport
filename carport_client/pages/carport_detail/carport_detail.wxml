@@ -1,0 +1,76 @@
+<!--pages/carport_detail/carport_detail.wxml-->
+<view class="container">
+  <view class="img">
+    <image src="../../assets/imgs/carport_detail/carport_img.jpg"/>
+  </view>
+  <view class="base_msg">
+    <view class="title">
+      <text>{{title}}</text>
+    </view>
+    <view class="time">
+      <text>更新时间: {{updateTime}}</text>
+    </view>
+    <view class="price">
+      <text class="price_value">{{price}}</text><text class="price_unit">{{priceUnit}}</text>
+    </view>
+    <view class="left__right">
+      <view class="left">
+        <view class="type">
+          <text class="key">类       型: </text>
+          <text class="value">{{messageType}}</text>
+        </view>
+        <view class="pay_status">
+          <text class="key">付款方式: </text>
+          <text class="value">{{payType}}</text>
+        </view>
+        <view class="address">
+          <text class="key">地       址: </text>
+          <text class="value">{{address}}</text>
+        </view>
+        <view class="phone">
+          <text class="key">联系方式: </text>
+          <text class="value">{{phone}}</text>
+        </view>
+      </view>
+      <view class="right">
+        <view class="area">
+          <text class="key">面     积: </text>
+          <text class="value">{{area}}㎡</text>
+        </view>
+        <view class="lease_term">
+          <text class="key">租     期: </text>
+          <text class="value">{{termLease}}</text>
+        </view>
+        <view class="linkman">
+          <text class="key">联 系 人: </text>
+          <text class="value">{{landlordName}}(个人)</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="line">
+  </view>
+  <view class="message">
+    <text>
+      {{describe}}
+    </text>
+  </view>
+
+  <view class="weui-tabbar">
+    <view class="weui-tabbar__item weui-bar__item_on">
+      <image src="../../assets/imgs/carport_detail/share.svg" alt class="weui-tabbar__icon"></image>
+      <view class="weui-tabbar__label">分享</view>
+    </view>
+    <view class="weui-tabbar__item weui-bar__item_on" catchtap="_userLike">
+      <image src="{{isLike? '../../assets/imgs/carport_detail/like.svg':'../../assets/imgs/carport_detail/un_like.svg'}}" alt class="weui-tabbar__icon"></image>
+      <view class="weui-tabbar__label">{{isLike? '已收藏': '收藏'}}</view>
+    </view>
+    <view class="button-sp-area">
+			<a class="weui-btn weui-btn_mini weui-btn_default">拨打电话</a>
+		</view>
+    <view class="button-sp-area">
+      <a class="weui-btn weui-btn_mini weui-btn_primary">租用车位</a>
+		</view>
+  </view>
+</view>

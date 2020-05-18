@@ -1,0 +1,69 @@
+<!--pages/index_page/index_page.wxml-->
+<view class="container">
+  <view class="location">
+    <view class="city">
+      <text class='city_now'>杭州</text>
+    </view>
+    <view class="community">
+      <x-searchbar/>
+    </view>
+  </view>
+  <view class="type_select">
+    <view class="trade_type">
+      <view>
+        <image src="../../assets/imgs/index_page/daily.svg"></image>
+        <text decode="{{true}}">&nbsp;&nbsp;日&nbsp;&nbsp;&nbsp;租</text>
+      </view>
+      <view>
+        <image src="../../assets/imgs/index_page/month.svg"></image>
+        <text decode="{{true}}">&nbsp;月&nbsp;&nbsp;&nbsp;租</text>
+      </view>
+      <view>
+        <image src="../../assets/imgs/index_page/year.svg"></image>
+        <text decode="{{true}}">&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;租</text>
+      </view>
+      <view>
+        <image src="../../assets/imgs/index_page/carport.svg"></image>
+        <text>车位出租</text>
+      </view>
+    </view>
+    <view class="order_select">
+      <view class="selection_loction">
+        <text>区域</text>
+        <image src="../../assets/imgs/index_page/selecter.svg"></image>
+      </view>
+      <view class="selection_price">
+        <text>价格</text>
+        <image src="../../assets/imgs/index_page/selecter.svg"></image>
+      </view>
+      <view class="select_default">
+        <text>智能排序</text>
+        <image src="../../assets/imgs/index_page/selecter.svg"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="carport_list">
+    <block wx:for='{{messageItems}}' wx:for-item='messageItem' wx:key='_id'>
+      <view class="container_carport_msg" id="{{messageItem._id}}" catchtap="_toCarportMsg">
+        <view>
+          <image class="carport_img" src="../../assets/imgs/carport_msg/carport_img.jpg"/>
+        </view>
+        <view class="msg">
+          <view class="title">
+            <text>{{messageItem.title}}</text>
+          </view>
+          <view class="address">
+            <text>{{messageItem.address}}</text>
+          </view>
+          <view class="type_price">
+            <text class="type">{{messageItem.lease}}</text>
+            <view class="price">
+              <text>{{messageItem.rant_price}}</text>{{messageItem.rant_unit}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

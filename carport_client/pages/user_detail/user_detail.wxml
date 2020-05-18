@@ -1,0 +1,31 @@
+<!--pages/user_detail/user_detail.wxml-->
+<view class="container">
+  <view class="user_base_msg">
+    <view class="profit">
+      <view class="userinfo">
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+        <block wx:else>
+          <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+      </view>
+    </view>
+    <view class="base_msg">
+      <view class="my_car">
+        <image src="../../assets/imgs/user_detail/car_bard.svg"/>
+        <view>我的车辆</view>
+      </view>
+      <view class="phone">
+        <image src="../../assets/imgs/user_detail/Phone numbers.svg"/>
+        <view>修改手机号</view>
+      </view>
+      
+    </view>
+  </view>
+  <view class="carport_msg">
+    <view class="line">租用的车位</view>
+    <x-carport-msg/>
+    <view class="line">出租的车位</view>
+    <x-carport-msg/>
+  </view>
+</view>

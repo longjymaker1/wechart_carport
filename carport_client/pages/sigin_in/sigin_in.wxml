@@ -1,0 +1,40 @@
+<!--pages/sigin_in/sigin_in.wxml-->
+<view class="container">
+  <view class="sigin-from">
+    <view class="input-view">
+      <image class='namelmage' src='../../assets/imgs/sigin_in/username.svg'></image>
+      <label class='singin-lab'>账号</label>
+      <input class='inputText' bindinput='inputSiginUsername' placeholder='注册账号' name='username' type='text'/>
+    </view>
+    <view class="input-view">
+      <image class='namelmage' src='../../assets/imgs/sigin_in/phone.svg'></image>
+      <label class='singin-lab'>手机号</label>
+      <input class='inputText' bindinput='inputSiginPhone' placeholder='输入手机号' name='username' type='text'/>
+    </view>
+    <view class="input-view">
+      <image class='namelmage' src='../../assets/imgs/sigin_in/Email.svg'></image>
+      <label class='singin-lab'>邮箱</label>
+      <input class='inputText' bindinput='inputSiginEmail' placeholder='输入邮箱' name='username' type='text'/>
+    </view>
+    <view class="input-view">
+      <image class='namelmage' src='../../assets/imgs/sigin_in/name.svg'></image>
+      <label class='singin-lab'>昵称</label>
+      <input class='inputText' bindinput='inputSiginName' placeholder='昵称' name='name' type='text'/>
+    </view>
+    <view class="input-view">
+      <image class='keylmage' src='../../assets/imgs/sigin_in/password.svg'></image>
+      <label class='singin-lab'>密码</label>
+      <input class='inputText'password="true" bindinput='inputPwd' placeholder='注册密码' name='passwd'/>
+    </view>
+    <view class="input-view">
+      <image class='keylmage' src='../../assets/imgs/sigin_in/password.svg'></image>
+      <label class='singin-lab'>确认密码</label>
+      <input class='inputText'password="true" bindinput='inputPwdAgin' placeholder='请重新输入注册密码' name='passwdagain'/>
+    </view>
+
+    <view class="sigin_in">
+      <button class='loginbtn' type='primary ' size='{{primarysize }}'loading='{{loading}}' plain="{{plain}}"bindtap="log">注册</button>
+      <view class='info'>{{result}}</view>
+    </view>
+  </view>
+</view>

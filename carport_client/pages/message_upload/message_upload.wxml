@@ -1,0 +1,79 @@
+<!--carport_client/pages/message_upload/message_upload.wxml-->
+<!-- 1. 选择省份-城市-区域-社区
+2. 编辑标题
+3. 挂牌类型--车位出租或者车位出售
+4. 面积
+5. 出租方式--押1付6、日租
+6. 租期
+7. 联系人称呼
+8. 联系方式
+9. 租金 
+10. 描述信息-->
+<view class="container">
+
+  <view class="weui-form__control-area">
+    <view class="weui-cells__group weui-cells__group_form">
+      <view class="weui-cells__title">车位信息</view>
+      <view class="weui-cells weui-cells_form">
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd"><label class="weui-label">标题</label></view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="填写车位信息标题" placeholder-class="weui-input__placeholder" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd">
+              <label class="weui-label">社区位置</label>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="详细地址，更换选择器" placeholder-class="weui-input__placeholder" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="详细地址，更换选择器" placeholder-class="weui-input__placeholder" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd">
+              <label class="weui-label">出租时间</label>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="月租还是日租，更换选择器" placeholder-class="weui-input__placeholder" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd">							
+              <label class="weui-label">联系电话</label>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="填写绑定的电话号码" type="number" placeholder-class="weui-input__placeholder" />
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_active">
+          <view class="weui-cell__hd">							
+              <label class="weui-label">租金</label>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="元/月" type="number" placeholder-class="weui-input__placeholder" />
+          </view>
+        </view>
+        
+        <view class="weui-cells__group weui-cells__group_form">
+          <view class="weui-cells weui-cells_form">
+            <view class="weui-cell ">
+              <view class="weui-cell__bd">
+                <textarea class="weui-textarea" placeholder="请描述车位" rows="3"></textarea>
+                <view class="weui-textarea-counter"><text>0</text>/200</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view class="weui-form__opr-area">
+    <a class="weui-btn weui-btn_primary">确定</a>
+  </view>
+</view>

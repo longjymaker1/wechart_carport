@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "x-carport-msg": "../../components/x-carport-msg/xx-carport-msg"
+  }
+}
