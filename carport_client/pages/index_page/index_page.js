@@ -1,6 +1,8 @@
 // pages/index_page/index_page.js
 const app = getApp()
 const db = wx.cloud.database({});
+var QQMapWX = require('../../assets/js/qqmap-wx-jssdk.min.js');
+var qqmapsdk;
 Page({
 
   /**
@@ -8,7 +10,8 @@ Page({
    */
   data: {
     messageItems: [],
-    openid: ''
+    openid: '',
+    location: ''
   },
 
   /**
@@ -25,7 +28,68 @@ Page({
         })
       }
     }),
-    this.getOpenid()
+    this.getOpenid(),
+    wx.getSetting({
+      success: (res)=>{
+        // console.log(JSON.stringify(res))
+        // res.authSetting['scope.userLocation'] == undefined    表示 初始化进入该页面
+        // res.authSetting['scope.userLocation'] == false    表示 非初始化进入该页面,且未授权
+        // res.authSetting['scope.userLocation'] == true    表示 地理位置授权
+        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] !=true) {
+          wx.showModal({
+            title: '请求授权当前位置',
+            content: '需要获取您的地理位置，请确认授权',
+            success: function(res){
+              if (res.cancel) {
+                wx.showToast({
+                  title: '拒绝授权',
+                  icon: 'none',
+                  duration: 1000
+                })
+              } else if (res.confirm) {
+                wx.showToast({
+                  title: '授权成功',
+                  icon: 'success',
+                  duration: 1000
+                })
+              } else{
+                wx.showToast({
+                  title: '授权成功',
+                  icon: 'none',
+                  duration: 1000
+                })
+              }
+            }
+          })
+        } else if (res.authSetting['scope.userLocation'] == undefined) {
+          this._getUserLocation()
+          // wx.getLocation({
+          //   success: res=>{
+          //     var latitude = 0;
+          //     var longitude = 0
+          //     console.log("latitude = ", res.latitude);
+          //     console.log("longitude = ", res.longitude);
+          //     // this.setData({
+          //     //   location: res
+          //     // })
+          //   }
+          // })
+        } else {
+          this._getUserLocation()
+          // wx.getLocation({
+          //   success: res=>{
+          //     var latitude = 0;
+          //     var longitude = 0
+          //     console.log("latitude = ", res.latitude);
+          //     console.log("longitude = ", res.longitude);
+          //     // this.setData({
+          //     //   location: res
+          //     // })
+          //   }
+          // })
+        }
+      }
+    })
   },
 
   /**
@@ -158,5 +222,28 @@ Page({
             + hour + ':' + minute + ':' + second;
 
     return time;
+  },
+
+  _getUserLocation: function(){
+    qqmapsdk = new QQMapWX({
+      key: 'WEJBZ-4RPCR-POEWD-WR5OX-LKS52-AGFBY' // 必填
+    });
+    //1、获取当前位置坐标
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
+        qqmapsdk.reverseGeocoder({
+          location: {
+            latitude: res.latitude,
+            longitude: res.longitude
+          },
+          success(res){
+            console.log("获取位置信息")
+            console.log(JSON.stringify(res))
+          }
+        })
+      }
+    })
   }
 })
