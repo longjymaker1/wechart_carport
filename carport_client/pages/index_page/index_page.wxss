@@ -54,6 +54,12 @@ page{
   color: #f2f2f2;
   font-weight: 700;
 }
+.city image{
+  height: 30rpx;
+  width: 30rpx;
+  margin: 10rpx;
+  margin-top: 30rpx;
+}
 
 .selection{
   height: 200rpx;
@@ -153,7 +159,7 @@ page{
 
 .container_carport_msg{
   width: 95%;
-  height: 200rpx;
+  height: 300rpx;
   background-color: #f5f2f2;
   border-width: 1rpx;
   border-color: #f5f2f2;
@@ -165,8 +171,8 @@ page{
   margin-top: 10rpx;
 }
 .container_carport_msg .carport_img{
-  width: 250rpx;
-  height: 200rpx;
+  width: 300rpx;
+  height: 300rpx;
   border-radius: 7%;
 }
 .msg{
@@ -179,6 +185,10 @@ page{
 .msg .title{
   font-size: 15px;
   font-weight: 600;
+  width: 370rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .address{
   font-size: 13;

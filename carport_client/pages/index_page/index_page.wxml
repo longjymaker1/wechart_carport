@@ -2,6 +2,7 @@
 <view class="container">
   <view class="location">
     <view class="city">
+      <image src="../../assets/imgs/index_page/location.svg"></image>
       <text class='city_now'>杭州</text>
     </view>
     <view class="community">
@@ -10,19 +11,19 @@
   </view>
   <view class="type_select">
     <view class="trade_type">
-      <view>
+      <view catchtap="_dataSelectDay">
         <image src="../../assets/imgs/index_page/daily.svg"></image>
         <text decode="{{true}}">&nbsp;&nbsp;日&nbsp;&nbsp;&nbsp;租</text>
       </view>
-      <view>
+      <view catchtap="_dataSelectMonth">
         <image src="../../assets/imgs/index_page/month.svg"></image>
         <text decode="{{true}}">&nbsp;月&nbsp;&nbsp;&nbsp;租</text>
       </view>
-      <view>
+      <view catchtap="_dataSelectYear">
         <image src="../../assets/imgs/index_page/year.svg"></image>
         <text decode="{{true}}">&nbsp;&nbsp;年&nbsp;&nbsp;&nbsp;&nbsp;租</text>
       </view>
-      <view>
+      <view catchtap="_toMsgUupload">
         <image src="../../assets/imgs/index_page/carport.svg"></image>
         <text class="carport_msg">车位出租</text>
       </view>

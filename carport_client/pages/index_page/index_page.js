@@ -123,6 +123,17 @@ Page({
       },
     })
   },
+  _dataSelectDay: function(evt){
+    console.log("筛选日租数据")
+  },
+  _dataSelectMonth: function(evt){
+    console.log("筛选月租数据")
+  },
+  _dataSelectYear: function(evt){
+    console.log("筛选年租数据")
+  },
+
+
   _msgTmp: function(){
   },
 
