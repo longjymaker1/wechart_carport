@@ -11,7 +11,9 @@ Page({
   data: {
     messageItems: [],
     openid: '',
-    location: ''
+    location: '',
+    useraddr: '',
+    city: ''
   },
 
   /**
@@ -63,30 +65,8 @@ Page({
           })
         } else if (res.authSetting['scope.userLocation'] == undefined) {
           this._getUserLocation()
-          // wx.getLocation({
-          //   success: res=>{
-          //     var latitude = 0;
-          //     var longitude = 0
-          //     console.log("latitude = ", res.latitude);
-          //     console.log("longitude = ", res.longitude);
-          //     // this.setData({
-          //     //   location: res
-          //     // })
-          //   }
-          // })
         } else {
           this._getUserLocation()
-          // wx.getLocation({
-          //   success: res=>{
-          //     var latitude = 0;
-          //     var longitude = 0
-          //     console.log("latitude = ", res.latitude);
-          //     console.log("longitude = ", res.longitude);
-          //     // this.setData({
-          //     //   location: res
-          //     // })
-          //   }
-          // })
         }
       }
     })
@@ -189,6 +169,7 @@ Page({
   },
   _dataSelectDay: function(evt){
     console.log("筛选日租数据")
+    console.log("useraddr = ", app.globalData.useraddr)
   },
   _dataSelectMonth: function(evt){
     console.log("筛选月租数据")
@@ -228,19 +209,60 @@ Page({
     qqmapsdk = new QQMapWX({
       key: 'WEJBZ-4RPCR-POEWD-WR5OX-LKS52-AGFBY' // 必填
     });
+    var that = this;
     //1、获取当前位置坐标
     wx.getLocation({
-      type: 'wgs84',
+      type: 'gcj02',
+      isHighAccuracy:true,
       success: function (res) {
         //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
         qqmapsdk.reverseGeocoder({
+          sig: "cPgBA3tUnTCj2bU51Q16JZoz63O4GJ33",
           location: {
             latitude: res.latitude,
             longitude: res.longitude
           },
-          success(res){
-            console.log("获取位置信息")
-            console.log(JSON.stringify(res))
+          success: function(ress){
+            that.setData({
+              city: ress.result.address_component.city,
+              useraddr: ress.result.address
+            })
+          },
+          faild: function(res){
+            wx.showToast({
+              title: '定位失败',
+              icon: 'none',
+              duration: 2000
+            })
+          },
+
+        })
+      },
+      faild: function(){
+        wx.hideLoading();
+        wx.getSetting({
+          success:function(res){
+            if(!res.authSetting['scope.userLocation']){
+              wx.showModal({
+                title: '',
+                content: '请允许获取您的定位',
+                confirmText: '授权',
+                success: function(res){
+                  if (res.confirm) {
+                    wx.openSetting()
+                  } else {
+                    console.log('get location fail');
+                  }
+                }
+              })
+            } else {
+              wx.showModal({
+                title: '',
+                content: '请在系统设置中打开定位服务',
+                confirmText: '确定',
+                success: function(res){}
+              })
+            }
           }
         })
       }

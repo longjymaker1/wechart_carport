@@ -3,7 +3,8 @@
   <view class="location">
     <view class="city">
       <image src="../../assets/imgs/index_page/location.svg"></image>
-      <text class='city_now'>杭州</text>
+      <!-- <text class='city_now'>杭州</text> -->
+      <text class='city_now'>{{city}}</text>
     </view>
     <view class="community">
       <x-searchbar/>
