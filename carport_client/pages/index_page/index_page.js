@@ -10,10 +10,14 @@ Page({
    */
   data: {
     messageItems: [],
+    provincesArray: [],
+    cityArray: [],
     openid: '',
     location: '',
     useraddr: '',
-    city: ''
+    city: '',
+    city_id: '',
+    province_id: ''
   },
 
   /**
@@ -169,7 +173,9 @@ Page({
   },
   _dataSelectDay: function(evt){
     console.log("筛选日租数据")
-    console.log("useraddr = ", app.globalData.useraddr)
+    console.log("city = ", this.data.city)
+    console.log("city_id = ", this.data.city_id)
+    console.log("province_id = ", this.data.province_id)
   },
   _dataSelectMonth: function(evt){
     console.log("筛选月租数据")
@@ -226,6 +232,21 @@ Page({
             that.setData({
               city: ress.result.address_component.city,
               useraddr: ress.result.address
+            }),
+            db.collection('City').where({
+              name: ress.result.address_component.city
+            }).get({
+              success: res=>{
+                that.setData({
+                  city_id: res.data[0]._id,
+                  province_id: res.data[0].province_id
+                })
+              }
+            }),
+            db.collection('Provinces').get({
+              success: res=>{
+                console.log('获取省份',res)
+              }
             })
           },
           faild: function(res){
