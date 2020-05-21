@@ -35,17 +35,6 @@ page{
   height: 80rpx;
   background-color: #FF6633;
 }
-/* .city_svg{
-  width: 15px;
-  height:15px;
-  margin-left: 3px;
-  text-align: center;
-} */
-/* .city text{
-  font-size: 14px;
-  text-align: center;
-} */
-
 
 .city .city_now{
   font-size: 22px;
