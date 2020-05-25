@@ -12,12 +12,19 @@ Page({
     messageItems: [],
     provincesArray: [],
     cityArray: [],
+    districtArray: [],
     openid: '',
     location: '',
     useraddr: '',
     city: '',
     city_id: '',
-    province_id: ''
+    city_index: 0,
+    province: '',
+    province_id: '',
+    province_index: 0,
+    district: '',
+    district_id: '',
+    district_index: 0
   },
 
   /**
@@ -173,9 +180,20 @@ Page({
   },
   _dataSelectDay: function(evt){
     console.log("筛选日租数据")
+    console.log("province = ", this.data.province)
+    console.log("province_id = ", this.data.province_id)
+    console.log('province_index = ', this.data.province_index)
+    console.log('provincesArray = ', this.data.provincesArray)
+    console.log("--------------")
     console.log("city = ", this.data.city)
     console.log("city_id = ", this.data.city_id)
-    console.log("province_id = ", this.data.province_id)
+    console.log("city_index = ", this.data.city_index)
+    console.log("cityArray = ", this.data.cityArray)
+    console.log("--------------")
+    console.log("district = ", this.data.district)
+    console.log("district_id = ", this.data.district_id)
+    console.log("district_index = ", this.data.district_index)
+    console.log("districtArray = ", this.data.districtArray)
   },
   _dataSelectMonth: function(evt){
     console.log("筛选月租数据")
@@ -231,21 +249,68 @@ Page({
           success: function(ress){
             that.setData({
               city: ress.result.address_component.city,
+              province: ress.result.address_component.province,
+              district: ress.result.address_component.district,
               useraddr: ress.result.address
-            }),
-            db.collection('City').where({
-              name: ress.result.address_component.city
-            }).get({
-              success: res=>{
+            })
+            
+            db.collection("Provinces").get({
+              success: res=> {
+                var provincesArrayTmp = [];
+                var provinceIdTmp;
+                var cityArrayTmp = [];
+                var cityIdTmp;
+                var districtArrayTmp = [];
+                for (let pid = 0; pid < res.data.length; pid++) {
+                  provincesArrayTmp.push({id: pid, _id: res.data[pid]._id, name: res.data[pid].name})
+                  if (res.data[pid].name === ress.result.address_component.province) {
+                    provinceIdTmp = res.data[pid]._id;
+                    that.setData({
+                      province_id: res.data[pid]._id,
+                      province_index: pid
+                    })
+                  }
+                }
                 that.setData({
-                  city_id: res.data[0]._id,
-                  province_id: res.data[0].province_id
+                  provincesArray: provincesArrayTmp
                 })
-              }
-            }),
-            db.collection('Provinces').get({
-              success: res=>{
-                console.log('获取省份',res)
+                db.collection("City").where({
+                  province_id: provinceIdTmp
+                }).get({
+                  success: cres => {
+                    for (let cid = 0; cid < cres.data.length; cid++) {
+                      cityArrayTmp.push({id: cid, _id: cres.data[cid]._id, name: cres.data[cid].name})
+                      if (cres.data[cid].name === ress.result.address_component.city) {
+                        cityIdTmp = cres.data[cid]._id
+                        that.setData({
+                          city_id: cres.data[cid]._id,
+                          city_index: cid
+                        })
+                      }
+                    }
+                    that.setData({
+                      cityArray: cityArrayTmp
+                    })
+                    db.collection("City_District").where({
+                      city_id: cityIdTmp
+                    }).get({
+                      success: dres => {
+                        for (let did = 0; did < dres.data.length; did++) {
+                          districtArrayTmp.push({id:did, _id: dres.data[did]._id, name: dres.data[did].name})
+                          if (dres.data[did].name === ress.result.address_component.district) {
+                            that.setData({
+                              district_id: dres.data[did]._id,
+                              district_index: did
+                            })
+                          }
+                        }
+                        that.setData({
+                          districtArray: districtArrayTmp
+                        })
+                      }
+                    })
+                  }
+                })
               }
             })
           },
